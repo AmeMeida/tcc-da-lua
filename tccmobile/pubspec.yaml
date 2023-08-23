@@ -30,14 +30,14 @@ flutter:
   assets:
       - assets/splash.png
       - assets/rg.jpg
-      - assets/Logo3.png
+      - assets/logo-AC.png
       - assets/carteira.png
   uses-material-design: true
 
-  fonts:
-    - family: Comfortaa
-      fonts:
-        - asset: fonts/Comfortaa-Regular.ttf
+  #fonts:
+  #  - family: Comfortaa
+  #    fonts:
+  #      - asset: fonts/Comfortaa-Regular.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:

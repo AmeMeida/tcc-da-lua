@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tccmobile/login.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,19 +17,17 @@ class Variaveis{
 class MyApp extends StatelessWidget {
   MyApp({super.key});
 
-  Color corAzul = Color.fromARGB(255, 9, 102, 136);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'AccessCity',
       theme: ThemeData(
-        primarySwatch: Colors.blue
+        primarySwatch: Colors.blue,
       ),
       routes: {
-        /*'/':(context) => Login(),
-        '/onibus':(context) => Onibus(),
+        '/':(context) => Login(),
+        /*'/onibus':(context) => Onibus(),
         '/lugar':(context) => Lugar(),
         '/perfil': (context) => Perfil(),
         '/configuracoes': (context) => Configuracao(),
