@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tccmobile/model/rota.dart';
 
 class Onibus extends StatefulWidget {
   const Onibus({super.key});

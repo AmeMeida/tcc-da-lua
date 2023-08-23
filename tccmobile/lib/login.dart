@@ -103,7 +103,6 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
-            const SizedBox(height: 16),
             ElevatedButton(
               onPressed: (){
                 if (_formKey.currentState!.validate()) {
@@ -125,10 +124,10 @@ class _LoginState extends State<Login> {
               fontWeight: FontWeight.w200),),
               style: ElevatedButton.styleFrom(
                 primary: Colors.red,
+                minimumSize: Size(332, 50),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18),
+                  borderRadius: BorderRadius.zero,
                 ),
-                minimumSize: Size(150, 50),
               ),
             ),
             const SizedBox(height: 16),
