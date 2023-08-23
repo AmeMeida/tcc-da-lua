@@ -2,18 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:tccmobile/model/usuario.dart';
 import 'package:tccmobile/onibus.dart';
+import 'package:tccmobile/main.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
 
   @override
   State<Login> createState() => _LoginState();
-}
-
-class Cores{
-  static Color azulLogo = Color.fromARGB(1, 101, 121, 155);
-  static Color azulFundo = Color.fromARGB(1, 211, 224, 234);
-  static Color vermelho = Color.fromARGB(1, 226, 62, 87);
 }
 
 class _LoginState extends State<Login> {
@@ -61,7 +56,7 @@ class _LoginState extends State<Login> {
             Image.asset("assets/logo-AC.png", width: 200, height: 200),
             const SizedBox(height: 24),
             const Text("Bem vindo de volta!", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, 
-            color: Colors.black)),
+            color: Colors.blue)),
             Form(
               key: _formKey,
               child: Padding(
