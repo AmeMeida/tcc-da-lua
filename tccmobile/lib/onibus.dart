@@ -59,7 +59,7 @@ class _OnibusState extends State<Onibus> {
         home: Scaffold(
             appBar: AppBar(
               //elevation: 10,
-              backgroundColor: Colors.blue,
+              backgroundColor: Cores.azul,
               actions: [
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
@@ -92,7 +92,23 @@ class _OnibusState extends State<Onibus> {
                 DrawerHeader(
                   child: Row(
                     children: [
-                      Image.asset("assets/logo-menor.png", width: 64, height: 64),
+                      Column(
+                         mainAxisAlignment: MainAxisAlignment.center,
+                        children:[
+                          Image.asset("assets/logo-menor.png", width: 64, height: 64),
+                        ]
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 4),
+                        child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text("Access", style: TextStyle(color: Cores.vermelho, fontSize: 22, fontFamily: 'Bebas Neue')),
+                                      Text("City", style: TextStyle(color: Cores.vermelho, fontSize: 22, fontFamily: 'Bebas Neue'))
+                                    ]
+                                )
+                      ),
                       /*Row(
                         children:[
                           Text("Access", style: TextStyle(color: Colors.red, fontSize: 20)),
@@ -172,7 +188,7 @@ class _OnibusState extends State<Onibus> {
                     margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.blue,
+                      color: Cores.azul,
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -212,7 +228,7 @@ class _OnibusState extends State<Onibus> {
                               backgroundColor: Colors.white,
                               title: Text('Carteira',
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Cores.azul,
                                       fontFamily: 'Comfortaa')),
                               content: Image.asset(
                                 'assets/carteira.png',
@@ -225,13 +241,13 @@ class _OnibusState extends State<Onibus> {
                                     },
                                     child: Icon(
                                       Icons.close,
-                                      color: Colors.blue,
+                                      color: Cores.azul,
                                     )),
                               ],
                             );
                           });
                     },
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Cores.azul,
                     child: Icon(
                       Icons.wallet,
                       color: Colors.white,

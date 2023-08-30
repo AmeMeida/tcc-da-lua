@@ -6,9 +6,10 @@ void main() {
 }
 
 class Cores{
-  static Color azulLogo = Color.fromARGB(1, 101, 121, 155);
-  static Color azulFundo = Color.fromARGB(1, 211, 224, 234);
-  static Color vermelho = Color.fromARGB(1, 226, 62, 87);
+  static Color azul = Color.fromARGB(255, 82, 109, 130);
+  static Color azulLogo = Color.fromARGB(255, 101, 121, 155);
+  static Color azulFundo = Color.fromARGB(255, 211, 224, 234);
+  static Color vermelho = Color.fromARGB(255, 226, 62, 87);
 }
 
 class MyApp extends StatelessWidget {

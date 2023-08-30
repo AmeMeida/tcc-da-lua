@@ -55,8 +55,8 @@ class _LoginState extends State<Login> {
             SizedBox(height: 64),
             Image.asset("assets/logo-AC.png", width: 200, height: 200),
             const SizedBox(height: 24),
-            const Text("Bem vindo de volta!", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, 
-            color: Colors.blue)),
+             Text("Bem vindo de volta!", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, 
+            color: Cores.azulLogo)),
             Form(
               key: _formKey,
               child: Padding(
