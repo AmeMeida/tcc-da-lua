@@ -17,6 +17,7 @@ class Onibus extends StatefulWidget {
 
 class _OnibusState extends State<Onibus> {
   bool _isSwitched = false;
+  
   Rota _selectedRota = defaultRota;
 
   final _mapController = MapController();
@@ -93,7 +94,7 @@ class _OnibusState extends State<Onibus> {
                   child: Row(
                     children: [
                       Column(
-                         mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children:[
                           Image.asset("assets/logo-menor.png", width: 64, height: 64),
                         ]
@@ -101,21 +102,14 @@ class _OnibusState extends State<Onibus> {
                       Padding(
                         padding: EdgeInsets.only(left: 4),
                         child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text("Access", style: TextStyle(color: Cores.vermelho, fontSize: 22, fontFamily: 'Bebas Neue')),
-                                      Text("City", style: TextStyle(color: Cores.vermelho, fontSize: 22, fontFamily: 'Bebas Neue'))
-                                    ]
-                                )
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Access", style: TextStyle(color: Cores.vermelho, fontSize: 22, fontFamily: 'Bebas Neue')),
+                            Text("City", style: TextStyle(color: Cores.vermelho, fontSize: 22, fontFamily: 'Bebas Neue'))
+                          ]
+                        )
                       ),
-                      /*Row(
-                        children:[
-                          Text("Access", style: TextStyle(color: Colors.red, fontSize: 20)),
-                          SizedBox(height: 2),
-                          Text("City", style: TextStyle(color: Colors.red, fontSize: 20))
-                        ]
-                      )*/
                     ],
                   ),
                 ),
@@ -181,6 +175,7 @@ class _OnibusState extends State<Onibus> {
                 ),
               ]),
             ),
+            /* BOTÃO ONIBUS/LOCAL */
             floatingActionButton: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
