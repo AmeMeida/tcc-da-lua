@@ -1,3 +1,4 @@
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields, prefer_const_constructors, sized_box_for_whitespace, sort_child_properties_last, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
 import 'package:tccmobile/login.dart';
 
@@ -10,6 +11,8 @@ class Cores{
   static Color azulLogo = Color.fromARGB(255, 101, 121, 155);
   static Color azulFundo = Color.fromARGB(255, 211, 224, 234);
   static Color vermelho = Color.fromARGB(255, 226, 62, 87);
+  //LUA POR FAVOR ESCOLHA O BRANCO CERTO
+  static Color branco = Colors.white;
 }
 
 class MyApp extends StatelessWidget {
