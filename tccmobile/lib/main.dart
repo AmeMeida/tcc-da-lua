@@ -6,6 +6,7 @@ import 'package:tccmobile/login.dart';
 import 'package:tccmobile/lugar.dart';
 import 'package:tccmobile/onibus.dart';
 import 'package:tccmobile/perfil/perfil.dart';
+import 'package:tccmobile/cadastro.dart';
 
 void main() {
   runApp(MyApp());
@@ -38,7 +39,8 @@ class MyApp extends StatelessWidget {
         '/lugar':(context) => Lugar(),
         '/perfil': (context) => Perfil(),
         '/configuracoes': (context) => Config(),
-        '/documentos': (context) => Docs()
+        '/documentos': (context) => Docs(),
+        '/cadastro':(context) => Cadastro(),
       }
     );
   }

@@ -31,7 +31,7 @@ class _ConfigState extends State<Config> {
               Container(
                 padding: EdgeInsets.all(16),
                 height: 100,
-                width: 450,
+                width: 360,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -46,8 +46,9 @@ class _ConfigState extends State<Config> {
                       ),
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: [Padding(
-                        padding: EdgeInsets.only(left:2),
+                        padding: EdgeInsets.only(left:4),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +62,7 @@ class _ConfigState extends State<Config> {
                     ),
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsets.only(left: 20),
+                        padding: EdgeInsets.only(left: 8),
                         child: TextButton(
                           onPressed: (){
                             Navigator.pushNamed(context, '/perfil');

@@ -141,7 +141,7 @@ class _OnibusState extends State<Onibus> {
                     title: Text('Meus documentos',
                         style: TextStyle(fontWeight: FontWeight.bold)),
                     onTap: () {
-                      Navigator.pushNamed(context, "/docs");
+                      Navigator.pushNamed(context, "/documentos");
                     },
                   ),
                 ),

@@ -127,7 +127,12 @@ class _LoginState extends State<Login> {
               ),
             ),
             const SizedBox(height: 16),
-            const Text("Não é inscrito? Cadastre-se!", style: TextStyle(fontSize: 15, color: Colors.red))
+            TextButton(
+              onPressed: (){
+                Navigator.pushNamed(context, '/cadastro');
+              },
+              child: Text("Não é inscrito? Cadastre-se!", style: TextStyle(fontSize: 15, color: Colors.red))
+            )
           ],
         ),
       ),
