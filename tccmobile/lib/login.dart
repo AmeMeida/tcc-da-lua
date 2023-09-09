@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:tccmobile/model/usuario.dart';
 import 'package:tccmobile/onibus.dart';
 import 'package:tccmobile/main.dart';
+import 'dart:developer';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -119,7 +120,7 @@ class _LoginState extends State<Login> {
               child: const Text("Log-In", style: TextStyle(color: Colors.white, fontSize: 15, 
               fontWeight: FontWeight.w200),),
               style: ElevatedButton.styleFrom(
-                primary: Colors.red,
+                primary: Cores.vermelho,
                 minimumSize: Size(332, 50),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.zero,
@@ -131,7 +132,7 @@ class _LoginState extends State<Login> {
               onPressed: (){
                 Navigator.pushNamed(context, '/cadastro');
               },
-              child: Text("Não é inscrito? Cadastre-se!", style: TextStyle(fontSize: 15, color: Colors.red))
+              child: Text("Não é inscrito? Cadastre-se!", style: TextStyle(fontSize: 15, color: Cores.vermelho))
             )
           ],
         ),

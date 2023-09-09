@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tccmobile/config/widget_config.dart';
+import 'package:tccmobile/model/usuario.dart';
+import 'package:tccmobile/login.dart';
 
 import '../main.dart';
 
@@ -9,7 +12,36 @@ class Config extends StatefulWidget {
   State<Config> createState() => _ConfigState();
 }
 
+class VariaveisConf {
+  static double valorFonte = 20;
+  static double valorFonteT = 30;
+  static bool notificacao = true;
+  static bool light = false;
+}
+
 class _ConfigState extends State<Config> {
+  /*void ModoEscuro() {
+    if (VariaveisConf.light == false) {
+      Color azul = Color.fromARGB(255, 82, 109, 130);
+      Color azulLogo = Color.fromARGB(255, 101, 121, 155);
+      Color azulFundo = Color.fromARGB(255, 211, 224, 234);
+      Color vermelho = Color.fromARGB(255, 226, 62, 87);
+      Color brancoCerto = Color.fromARGB(255, 196, 203, 202);
+      Color branco = Colors.white;
+      Color cinza = Color.fromARGB(255, 129, 132, 134);
+    } else {
+      Color azul = Color.fromARGB(255, 82, 109, 130);
+      Color azulLogo = Color.fromARGB(255, 101, 121, 155);
+      Color azulFundo = Color.fromARGB(255, 211, 224, 234);
+      Color vermelho = Color.fromARGB(255, 226, 62, 87);
+      Color brancoCerto = Color.fromARGB(255, 196, 203, 202);
+      Color branco = const Color.fromARGB(255, 138, 134, 134);
+      Color cinza = Color.fromARGB(255, 129, 132, 134);
+    }
+  }*/
+
+  final bool customIcon = false;
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -53,7 +85,7 @@ class _ConfigState extends State<Config> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Catarina Fagotti Bonifácio", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400)),
+                            Text("Catarina Fagotti Bonifácio", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
                             Text("Sem deficiência", style: TextStyle(fontSize: 13, color: Cores.cinza)),
                             Text("catfagboni@gmail.com", style: TextStyle(fontSize: 13, color: Cores.cinza))
                           ],
@@ -74,6 +106,52 @@ class _ConfigState extends State<Config> {
                   ],
                 ),
               ),
+              SizedBox(height: 20),
+              Container(
+                padding: EdgeInsets.all(16),
+                width: 360,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white
+                ),
+                child: Column(
+                  children: [
+                    Theme(
+                      data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                      child: ExpansionTile(
+                        title: const Text("Segurança", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900)),
+                        children: [
+                          ListTile(
+                            title: Text("muito seguro, pode confiar"),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Theme(
+                      data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                      child: ExpansionTile(
+                        title: const Text("Notificações", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900)),
+                        children: [
+                          ListTile(
+                            title: Text("n precisa se preocupar com isso"),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Theme(
+                      data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                      child: ExpansionTile(
+                        title: const Text("Acessibilidade", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900)),
+                        children: [
+                          ListTile(
+                            title: Text("pera ai"),
+                          ),
+                        ],
+                      )
+                    )
+                  ],
+                ),
+              )
             ],
           ),
         ),
@@ -81,3 +159,198 @@ class _ConfigState extends State<Config> {
     );
   }
 }
+
+
+/*
+Container(
+                padding: EdgeInsets.all(16),
+                width: 360,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Colors.black),
+                    color: Cores.azul,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(height: 15,),
+                      My_Titulo("Minha conta"),
+                      SizedBox(height: 15,),
+                      My_Text("Alterar minha senha"),
+                      //Botao
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Cores.branco,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          onPressed: () {
+                            print("Mudar senha");
+                          },
+                          child: Text(
+                            'Mudar senha',
+                            style: TextStyle(color: Cores.azul, fontSize: VariaveisConf.valorFonte),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20,),
+                      My_Text("Apagar minha conta"),
+                      //Botao 2
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Cores.branco,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          onPressed: () {
+                            print("Apagar conta");
+                          },
+                          child: Text(
+                            'Apagar conta',
+                            style: TextStyle(color: Cores.branco, fontSize: VariaveisConf.valorFonte),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 15,),
+                    ],
+                  ),
+                ),
+
+                Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Colors.black),
+                    color: Cores.azul,
+                  ),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 15,),
+                      My_Titulo("Notificações"),
+                      SizedBox(height: 15,),
+                      My_Text("Permitir notificações?"),
+                      //Switch
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.close,
+                            size: 35,
+                            color: Cores.branco,
+                          ),
+                          Switch(
+                            value: VariaveisConf.notificacao,
+                            activeColor: Cores.branco,
+                            inactiveThumbColor: Cores.branco,
+                            onChanged: (bool value) {
+                              setState(() {
+                                VariaveisConf.notificacao =
+                                    !VariaveisConf.notificacao;
+                                print(VariaveisConf.notificacao);
+                              });
+                            },
+                          ),
+                          Icon(
+                            Icons.check,
+                            size: 35,
+                            color: Cores.branco,
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 15,),
+                    ],
+                  ),
+                ),
+
+                //Aparência
+                Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Cores.branco),
+                    color: Cores.branco,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(height: 15,),
+                      My_Titulo("Aparência"),
+                      SizedBox(height: 15,),
+                      My_Text("Tamanho da fonte"),
+                      //Barrinha
+                      Slider(
+                        activeColor: Cores.branco,
+                        value: VariaveisConf.valorFonte,
+                        min: 0,
+                        max: 30,
+                        divisions: 15,
+                        label: VariaveisConf.valorFonte.toString(),
+                        onChanged: (novoValor) {
+                          setState(() {
+                            if (VariaveisConf.valorFonte <= 30 || VariaveisConf.valorFonte >= 8) {
+                              VariaveisConf.valorFonte = novoValor;
+                              VariaveisConf.valorFonteT = novoValor + 4;
+                            } else if (VariaveisConf.valorFonte > 30){
+                              VariaveisConf.valorFonte = 30;
+                              VariaveisConf.valorFonteT = 34;
+                              print(VariaveisConf.valorFonte);
+                            } else if (VariaveisConf.valorFonte <= 8){
+                              VariaveisConf.valorFonte = 8;
+                              VariaveisConf.valorFonteT = 12;
+                              print(VariaveisConf.valorFonte);
+                            }
+                          });
+                        },
+                      ),
+                      SizedBox(height: 15,),
+                      My_Text("Modo escuro"),
+                      //Switch
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.sunny,
+                            color: Cores.branco,
+                            size: 35,
+                          ),
+                          Switch(
+                            value: VariaveisConf.light,
+                            activeColor: Cores.branco,
+                            inactiveThumbColor: Cores.branco,
+                            onChanged: (bool value) {
+                              setState(() {
+                                VariaveisConf.light = !VariaveisConf.light;
+                                ModoEscuro();
+                              });
+                            },
+                          ),
+                          Icon(
+                            Icons.nightlight_round,
+                            color: Cores.branco,
+                            size: 35,
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 15,),
+                    ],
+                  ),
+                ),
+                  ],
+                ),
+              )
+*/

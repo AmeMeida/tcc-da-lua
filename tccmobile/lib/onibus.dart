@@ -16,6 +16,7 @@ class Onibus extends StatefulWidget {
   @override
   State<Onibus> createState() => _OnibusState();
 }
+//O BOTAO DE ESCOLHER ENTRE ROTA E ONIBUS EM BAIXO CHAMA TOGGLEBUTTON
 
 class _OnibusState extends State<Onibus> {
   bool _isSwitched = false;
