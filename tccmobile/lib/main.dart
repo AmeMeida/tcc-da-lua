@@ -18,6 +18,7 @@ class Cores{
   static Color vermelho = Color.fromARGB(255, 226, 62, 87);
   static Color brancoCerto = Color.fromARGB(255, 196, 203, 202);
   static Color branco = Colors.white;
+  static Color cinza = Color.fromARGB(255, 129, 132, 134);
 }
 
 class MyApp extends StatelessWidget {

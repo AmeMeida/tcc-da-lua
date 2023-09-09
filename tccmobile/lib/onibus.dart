@@ -130,10 +130,7 @@ class _OnibusState extends State<Onibus> {
                     title: Text('Meu Perfil',
                         style: TextStyle(fontWeight: FontWeight.bold)),
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Perfil()));
+                      Navigator.pushNamed(context, "/perfil");
                     },
                   ),
                 ),
@@ -144,10 +141,7 @@ class _OnibusState extends State<Onibus> {
                     title: Text('Meus documentos',
                         style: TextStyle(fontWeight: FontWeight.bold)),
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Docs()));
+                      Navigator.pushNamed(context, "/docs");
                     },
                   ),
                 ),
@@ -158,10 +152,7 @@ class _OnibusState extends State<Onibus> {
                         title: Text('Configurações',
                             style: TextStyle(fontWeight: FontWeight.bold)),
                         onTap: () => {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const Config()))
+                              Navigator.pushNamed(context, "/configuracoes")
                             }))
               ]),
             ),

@@ -30,11 +30,48 @@ class _ConfigState extends State<Config> {
               SizedBox(height: 20),
               Container(
                 padding: EdgeInsets.all(16),
-                color: Colors.white,
                 height: 100,
                 width: 450,
                 alignment: Alignment.center,
-                child: Text("oioioioi"),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: CircleAvatar(
+                        backgroundImage: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl8Ea9cyIi_U8y7mgzqX1SitKtppQOzlciXA&usqp=CAU"),
+                        radius: 80,
+                      ),
+                    ),
+                    Column(
+                      children: [Padding(
+                        padding: EdgeInsets.only(left:2),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Catarina Fagotti Bonifácio", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400)),
+                            Text("Sem deficiência", style: TextStyle(fontSize: 13, color: Cores.cinza)),
+                            Text("catfagboni@gmail.com", style: TextStyle(fontSize: 13, color: Cores.cinza))
+                          ],
+                        )
+                      ),]
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 20),
+                        child: TextButton(
+                          onPressed: (){
+                            Navigator.pushNamed(context, '/perfil');
+                          },
+                          child: Text("Editar", style: TextStyle(color: Cores.vermelho, fontSize: 13, fontWeight: FontWeight.bold),)
+                        )
+                      )
+                    )
+                  ],
+                ),
               ),
             ],
           ),
