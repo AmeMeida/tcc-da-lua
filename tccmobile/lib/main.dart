@@ -1,6 +1,11 @@
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields, prefer_const_constructors, sized_box_for_whitespace, sort_child_properties_last, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
+import 'package:tccmobile/config/config.dart';
+import 'package:tccmobile/doc/docs.dart';
 import 'package:tccmobile/login.dart';
+import 'package:tccmobile/lugar.dart';
+import 'package:tccmobile/onibus.dart';
+import 'package:tccmobile/perfil/perfil.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +16,7 @@ class Cores{
   static Color azulLogo = Color.fromARGB(255, 101, 121, 155);
   static Color azulFundo = Color.fromARGB(255, 211, 224, 234);
   static Color vermelho = Color.fromARGB(255, 226, 62, 87);
-  //LUA POR FAVOR ESCOLHA O BRANCO CERTO
+  static Color brancoCerto = Color.fromARGB(255, 196, 203, 202);
   static Color branco = Colors.white;
 }
 
@@ -28,11 +33,11 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/':(context) => Login(),
-        /*'/onibus':(context) => Onibus(),
+        '/onibus':(context) => Onibus(),
         '/lugar':(context) => Lugar(),
         '/perfil': (context) => Perfil(),
-        '/configuracoes': (context) => Configuracao(),
-        '/documentos': (context) => Documentos()*/
+        '/configuracoes': (context) => Config(),
+        '/documentos': (context) => Docs()
       }
     );
   }

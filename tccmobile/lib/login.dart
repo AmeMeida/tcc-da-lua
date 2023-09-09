@@ -108,12 +108,8 @@ class _LoginState extends State<Login> {
                 if (_formKey.currentState!.validate()) {
                   senhaA = _campoSenha.text;
                   usuarioA = _campoUsuario.text;
-                  if (users.any((element) =>
-                      element.usuario == usuarioA && element.senha == senhaA)) {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Onibus()));
+                  if (users.any((element) => element.usuario == usuarioA && element.senha == senhaA)) {
+                    Navigator.pushNamed(context, "/onibus");
                   } else {
                     _showDialog();
                   }

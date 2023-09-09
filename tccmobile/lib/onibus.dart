@@ -67,7 +67,7 @@ class _OnibusState extends State<Onibus> {
                     alignment: Alignment.centerRight,
                     width: 300,
                     child: DropdownButton<Rota>(
-                      dropdownColor: Colors.white,
+                      dropdownColor: Cores.brancoCerto,
                       borderRadius: BorderRadius.circular(10),
                       value: _selectedRota,
                       items: _rotas
@@ -92,7 +92,7 @@ class _OnibusState extends State<Onibus> {
             ),
             //Menu
             drawer: Drawer(
-              backgroundColor: Colors.white,
+              backgroundColor: Cores.brancoCerto,
               child: ListView(padding: EdgeInsets.zero, children: <Widget>[
                 DrawerHeader(
                   child: Row(
@@ -266,7 +266,7 @@ class _OnibusState extends State<Onibus> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              backgroundColor: Colors.white,
+                              backgroundColor: Cores.brancoCerto,
                               title: Text('Carteira',
                                   style: TextStyle(
                                       color: Cores.azul,

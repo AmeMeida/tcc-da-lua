@@ -14,16 +14,11 @@ class _ConfigState extends State<Config> {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        title: Text("Configurações", style: TextStyle(fontSize: 18),),
         actions: [
           Padding(
             padding: EdgeInsets.only(top: 16),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text("Configurações", style: TextStyle(fontSize: 20))
-              ]
-            ) 
           )
         ]
       ),
