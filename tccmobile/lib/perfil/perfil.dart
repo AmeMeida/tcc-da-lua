@@ -10,12 +10,43 @@ class Perfil extends StatefulWidget {
 }
 
 class _PerfilState extends State<Perfil> {
-  //variaveis
+  //VARIAVEIS
   TextEditingController _campoNome = TextEditingController();
   TextEditingController _campoNasc = TextEditingController();
   TextEditingController _campoEmail = TextEditingController();
   TextEditingController _campoCel = TextEditingController();
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  bool enabled = false;
+  bool auditiva = false;
+  bool visual = false;
+  bool motora = false;
+  bool outra = false;
+
+  //METODOS
+  void Alterar() {
+    enabled = !enabled;
+  }
+
+  void Cancelar() {
+    enabled = !enabled;
+    _campoNome.clear();
+    _campoNasc.clear();
+    _campoEmail.clear();
+    _campoCel.clear();
+  }
+
+  void Salvar() {
+    print("salvou");
+  }
+
+  Icon mudaIcon(){
+  if(enabled == true){
+    return Icon(Icons.save, color: Cores.branco, size: 25,);
+  }else{
+    return Icon(Icons.edit, color: Cores.branco, size: 25,);
+  }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +97,7 @@ class _PerfilState extends State<Perfil> {
                     children: [
                       TextFormField(
                         controller: _campoNome,
+                        enabled: enabled,
                         decoration: InputDecoration(
                           labelText: "Nome completo",
                           prefixIcon: const Icon(Icons.person),
@@ -77,6 +109,7 @@ class _PerfilState extends State<Perfil> {
                       SizedBox(height: 20),
                       MaskedTextField(
                         controller: _campoEmail,
+                        enabled: enabled,
                         decoration: InputDecoration(
                           labelText: "E-mail",
                           prefixIcon: const Icon(Icons.email),
@@ -88,6 +121,7 @@ class _PerfilState extends State<Perfil> {
                       SizedBox(height: 20),
                       MaskedTextField(
                         controller: _campoCel,
+                        enabled: enabled,
                         decoration: InputDecoration(
                           labelText: "Celular",
                           prefixIcon: const Icon(Icons.phone),
@@ -99,6 +133,7 @@ class _PerfilState extends State<Perfil> {
                       SizedBox(height: 20),
                       MaskedTextField(
                         controller: _campoNasc,
+                        enabled: enabled,
                         decoration: InputDecoration(
                           labelText: "Data de Nascimento",
                           prefixIcon: const Icon(Icons.calendar_today),
@@ -115,7 +150,17 @@ class _PerfilState extends State<Perfil> {
             ],
           ),
         ),
-      )
+      ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            backgroundColor: Cores.vermelho,
+            child: mudaIcon(),
+            onPressed: () => setState(Alterar),
+          )
+        ]
+      ),
     );
   }
 }
