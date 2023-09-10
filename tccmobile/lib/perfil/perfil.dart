@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:masked_text/masked_text.dart';
 import 'package:tccmobile/main.dart';
 
 class Perfil extends StatefulWidget {
@@ -9,6 +10,13 @@ class Perfil extends StatefulWidget {
 }
 
 class _PerfilState extends State<Perfil> {
+  //variaveis
+  TextEditingController _campoNome = TextEditingController();
+  TextEditingController _campoNasc = TextEditingController();
+  TextEditingController _campoEmail = TextEditingController();
+  TextEditingController _campoCel = TextEditingController();
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,8 +32,12 @@ class _PerfilState extends State<Perfil> {
               Stack(
                 children: [
                   CircleAvatar(
-                    backgroundImage: AssetImage("assets/foto-perfil.jpg"),
-                    radius: 80,
+                    backgroundColor: Cores.azul,
+                    radius: 81,
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage("assets/foto-perfil.jpg"),
+                      radius: 80,
+                    ),
                   ),
                   Positioned(
                     bottom: 0,
@@ -45,6 +57,61 @@ class _PerfilState extends State<Perfil> {
                   )
                 ],
               ),
+              SizedBox(height: 10),
+              Form(
+                key: _formKey,
+                child: Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        controller: _campoNome,
+                        decoration: InputDecoration(
+                          labelText: "Nome completo",
+                          prefixIcon: const Icon(Icons.person),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(18),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      MaskedTextField(
+                        controller: _campoEmail,
+                        decoration: InputDecoration(
+                          labelText: "E-mail",
+                          prefixIcon: const Icon(Icons.email),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(18),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      MaskedTextField(
+                        controller: _campoCel,
+                        decoration: InputDecoration(
+                          labelText: "Celular",
+                          prefixIcon: const Icon(Icons.phone),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(18),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      MaskedTextField(
+                        controller: _campoNasc,
+                        decoration: InputDecoration(
+                          labelText: "Data de Nascimento",
+                          prefixIcon: const Icon(Icons.calendar_today),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(18),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                    ],
+                  ),
+                )
+              )
             ],
           ),
         ),
