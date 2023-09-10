@@ -78,7 +78,7 @@ class _ConfigState extends State<Config> {
     return  Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Configurações", style: TextStyle(fontSize: 18),),
+        title: Text("Configurações", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
         actions: [
           Padding(
             padding: EdgeInsets.only(top: 16),
