@@ -104,7 +104,7 @@ class _ConfigState extends State<Config> {
                   children: [
                     Expanded(
                       child: CircleAvatar(
-                        backgroundImage: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl8Ea9cyIi_U8y7mgzqX1SitKtppQOzlciXA&usqp=CAU"),
+                        backgroundImage: AssetImage("assets/foto-perfil.jpg"),
                         radius: 80,
                       ),
                     ),

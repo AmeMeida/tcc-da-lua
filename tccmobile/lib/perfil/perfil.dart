@@ -13,12 +13,42 @@ class _PerfilState extends State<Perfil> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Perfil"),
+        title: Text(""),
+        backgroundColor: Cores.azulFundo,
       ),
       backgroundColor: Cores.azulFundo,
       body: Center(
-        child: Text("Perfil")
-      ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Stack(
+                children: [
+                  CircleAvatar(
+                    backgroundImage: AssetImage("assets/foto-perfil.jpg"),
+                    radius: 80,
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    right: 0,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Cores.azulLogo,
+                        shape: BoxShape.circle
+                      ),
+                      child: IconButton(
+                        icon: Icon(Icons.photo_camera),
+                        color: Cores.branco,
+                        iconSize: 20,
+                        onPressed: (){},
+                      ),
+                    )
+                  )
+                ],
+              ),
+            ],
+          ),
+        ),
+      )
     );
   }
 }

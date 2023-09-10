@@ -34,6 +34,7 @@ flutter:
       - assets/logo-AC.png
       - assets/logo-menor.png
       - assets/carteira.png
+      - assets/foto-perfil.jpg
   uses-material-design: true
 
   fonts:
