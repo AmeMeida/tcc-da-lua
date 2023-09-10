@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tccmobile/config/widget_config.dart';
 import 'package:tccmobile/model/usuario.dart';
@@ -20,7 +21,8 @@ class VariaveisConf {
 }
 
 class _ConfigState extends State<Config> {
-  /*void ModoEscuro() {
+  //MODO ESCURO
+  void ModoEscuro() {
     if (VariaveisConf.light == false) {
       Color azul = Color.fromARGB(255, 82, 109, 130);
       Color azulLogo = Color.fromARGB(255, 101, 121, 155);
@@ -32,15 +34,48 @@ class _ConfigState extends State<Config> {
     } else {
       Color azul = Color.fromARGB(255, 82, 109, 130);
       Color azulLogo = Color.fromARGB(255, 101, 121, 155);
-      Color azulFundo = Color.fromARGB(255, 211, 224, 234);
+      Color azulFundo = Color.fromARGB(255, 22, 46, 65);
       Color vermelho = Color.fromARGB(255, 226, 62, 87);
       Color brancoCerto = Color.fromARGB(255, 196, 203, 202);
       Color branco = const Color.fromARGB(255, 138, 134, 134);
       Color cinza = Color.fromARGB(255, 129, 132, 134);
     }
-  }*/
+  }
+
+  //AVISO
+    void mudarSenha(){
+      showDialog(
+        context: context,
+        builder: (context){
+          return CupertinoAlertDialog(
+            title: Text("Configurações"),
+            content: Text("Deseja mesmo mudar a senha?"),
+            actions: [ 
+              CupertinoDialogAction(child: Text("Não")),
+              CupertinoDialogAction(child: Text("Sim")),
+            ]
+          );
+        }
+      );
+    }
+    void deletarConta(){
+      showDialog(
+        context: context,
+        builder: (context){
+          return CupertinoAlertDialog(
+            title: Text("Configurações"),
+            content: Text("Deseja mesmo deletar sua conta?"),
+            actions: [ 
+              CupertinoDialogAction(child: Text("Não")),
+              CupertinoDialogAction(child: Text("Sim")),
+            ]
+          );
+        }
+      );
+    }
 
   final bool customIcon = false;
+  bool notif = true;
 
   @override
   Widget build(BuildContext context) {
@@ -122,8 +157,15 @@ class _ConfigState extends State<Config> {
                         title: const Text("Segurança", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900)),
                         children: [
                           ListTile(
-                            title: Text("muito seguro, pode confiar"),
+                            title: Text("Mudar a senha", style: TextStyle(fontSize: 13)),
+                            leading: Icon(Icons.lock,size: 18),
+                            onTap: () => mudarSenha(),
                           ),
+                          ListTile(
+                            title: Text("Deletar a conta", style: TextStyle(fontSize: 13),),
+                            leading: Icon(Icons.delete, size: 18,),
+                            onTap: () => deletarConta(),
+                          )
                         ],
                       ),
                     ),
@@ -132,8 +174,15 @@ class _ConfigState extends State<Config> {
                       child: ExpansionTile(
                         title: const Text("Notificações", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900)),
                         children: [
-                          ListTile(
-                            title: Text("n precisa se preocupar com isso"),
+                          SwitchListTile(
+                            title: Text("Permitir notificações?", style: TextStyle(fontSize: 13)),
+                            secondary: const Icon(Icons.notifications_active, size: 18),
+                            value: notif,
+                            onChanged: (bool value){
+                              setState(() {
+                                notif = value;
+                              });
+                            },
                           ),
                         ],
                       ),
@@ -144,7 +193,19 @@ class _ConfigState extends State<Config> {
                         title: const Text("Acessibilidade", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900)),
                         children: [
                           ListTile(
-                            title: Text("pera ai"),
+                            title: Text("Tamanho da fonte", style: TextStyle(fontSize: 13)),
+                            leading: const Icon(Icons.format_size, size: 18,),
+                          ),
+                          SwitchListTile(
+                            title: Text("Modo escuro", style: TextStyle(fontSize: 13)),
+                            secondary: const Icon(Icons.dark_mode, size: 18,),
+                            value: VariaveisConf.light,
+                            onChanged: (bool value){
+                              setState(() {
+                                VariaveisConf.light = !VariaveisConf.light;
+                                ModoEscuro();
+                              });
+                            },
                           ),
                         ],
                       )
