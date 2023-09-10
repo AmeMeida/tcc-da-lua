@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tccmobile/config/widget_config.dart';
 import 'package:tccmobile/model/usuario.dart';
 import 'package:tccmobile/login.dart';
 
@@ -14,9 +13,6 @@ class Config extends StatefulWidget {
 }
 
 class VariaveisConf {
-  static double valorFonte = 20;
-  static double valorFonteT = 30;
-  static bool notificacao = true;
   static bool light = false;
 }
 
