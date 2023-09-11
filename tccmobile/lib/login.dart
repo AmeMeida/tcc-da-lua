@@ -56,8 +56,7 @@ class _LoginState extends State<Login> {
             SizedBox(height: 64),
             Image.asset("assets/logo-AC.png", width: 200, height: 200),
             const SizedBox(height: 24),
-             Text("Bem vindo de volta!", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, 
-            color: Cores.azulLogo)),
+             Text("Bem vindo de volta!", style: TextStyle(fontSize: 24,  color: Colors.black)),
             Form(
               key: _formKey,
               child: Padding(
@@ -117,22 +116,27 @@ class _LoginState extends State<Login> {
                   //metodo verificar na lista do repository
                 }
               },
-              child: const Text("Log-In", style: TextStyle(color: Colors.white, fontSize: 15, 
-              fontWeight: FontWeight.w200),),
+              child: const Text("Log-In", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),),
               style: ElevatedButton.styleFrom(
-                primary: Cores.vermelho,
-                minimumSize: Size(332, 50),
+                backgroundColor: Cores.vermelho,
+                minimumSize: Size(320, 50),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.zero,
+                  borderRadius: BorderRadius.circular(18),
                 ),
               ),
             ),
             const SizedBox(height: 16),
-            TextButton(
-              onPressed: (){
-                Navigator.pushNamed(context, '/cadastro');
-              },
-              child: Text("Não é inscrito? Cadastre-se!", style: TextStyle(fontSize: 15, color: Cores.vermelho))
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Não é inscrito?", style: TextStyle(fontSize: 15, color: Colors.black),),
+                TextButton(
+                  onPressed: (){
+                    Navigator.pushNamed(context, '/cadastro');
+                  },
+                  child: Text("Cadastre-se!", style: TextStyle(fontSize: 15, color: Cores.vermelho, fontWeight: FontWeight.bold))
+                )
+              ],
             )
           ],
         ),
