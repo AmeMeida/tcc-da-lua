@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tccmobile/controller/user_control.dart';
 import 'package:tccmobile/model/usuario.dart';
 import 'package:tccmobile/login.dart';
 
@@ -58,7 +59,7 @@ class _ConfigState extends State<Config> {
       showDialog(
         context: context,
         builder: (context){
-          return CupertinoAlertDialog(
+          return const CupertinoAlertDialog(
             title: Text("Configurações"),
             content: Text("Deseja mesmo deletar sua conta?"),
             actions: [ 
@@ -75,11 +76,15 @@ class _ConfigState extends State<Config> {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    if (userControl.loggedUser == null) {
+      Navigator.of(context).pop();
+    }
+
+    return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Configurações", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-        actions: [
+        title: const Text("Configurações", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+        actions: const [
           Padding(
             padding: EdgeInsets.only(top: 16),
           )
@@ -90,9 +95,9 @@ class _ConfigState extends State<Config> {
         child: Center(
           child: Column(
             children: [
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Container(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 height: 100,
                 width: 360,
                 alignment: Alignment.center,
@@ -102,7 +107,7 @@ class _ConfigState extends State<Config> {
                 ),
                 child: Row(
                   children: [
-                    Expanded(
+                    const Expanded(
                       child: CircleAvatar(
                         backgroundImage: AssetImage("assets/foto-perfil.jpg"),
                         radius: 80,
@@ -110,18 +115,20 @@ class _ConfigState extends State<Config> {
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [Padding(
-                        padding: EdgeInsets.only(left:4),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("Catarina Fagotti Bonifácio", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
-                            Text("Sem deficiência", style: TextStyle(fontSize: 13, color: Cores.cinza)),
-                            Text("catfagboni@gmail.com", style: TextStyle(fontSize: 13, color: Cores.cinza))
-                          ],
-                        )
-                      ),]
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left:4),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(userControl.loggedUser!.nome, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
+                              Text(userControl.loggedUser!.deficiencias.isEmpty ? "Sem deficiência" : userControl.loggedUser!.deficiencias.map((e) => deficienciaToString[e]).join(", "), style: TextStyle(fontSize: 13, color: Cores.cinza)),
+                              Text(userControl.loggedUser!.email, style: TextStyle(fontSize: 13, color: Cores.cinza))
+                            ],
+                          )
+                        ),
+                      ]
                     ),
                     Expanded(
                       child: Padding(

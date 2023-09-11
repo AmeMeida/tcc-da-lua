@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:tccmobile/controller/user_control.dart';
 import 'package:tccmobile/model/usuario.dart';
 import 'package:tccmobile/onibus.dart';
 import 'package:tccmobile/main.dart';
@@ -104,26 +105,28 @@ class _LoginState extends State<Login> {
               ),
             ),
             ElevatedButton(
-              onPressed: (){
+              onPressed: () {
                 if (_formKey.currentState!.validate()) {
                   senhaA = _campoSenha.text;
                   usuarioA = _campoUsuario.text;
-                  if (users.any((element) => element.usuario == usuarioA && element.senha == senhaA)) {
+
+                  try {
+                    userControl.login(usuarioA, senhaA);
                     Navigator.pushNamed(context, "/onibus");
-                  } else {
+                  } catch (e) {
                     _showDialog();
                   }
                   //metodo verificar na lista do repository
                 }
               },
-              child: const Text("Log-In", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Cores.vermelho,
-                minimumSize: Size(320, 50),
+                minimumSize: const Size(320, 50),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(18),
                 ),
               ),
+              child: const Text("Log-In", style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),),
             ),
             const SizedBox(height: 16),
             Row(
