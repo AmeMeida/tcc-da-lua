@@ -1,6 +1,7 @@
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields, prefer_const_constructors, sized_box_for_whitespace, sort_child_properties_last, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:tccmobile/config/config.dart';
 import 'package:tccmobile/doc/docs.dart';
 import 'package:tccmobile/model/rota.dart';
@@ -20,7 +21,7 @@ class Onibus extends StatefulWidget {
 
 class _OnibusState extends State<Onibus> {
   bool _isSwitched = false;
-  bool mostraContainer = false; 
+  bool mostraContainer = false;
 
   Rota _selectedRota = defaultRota;
 
@@ -78,11 +79,11 @@ class _OnibusState extends State<Onibus> {
                       onChanged: (Rota? newValue) {
                         setState(() {
                           _selectedRota = newValue!;
-                          int valor = newValue.id; 
-                          if(valor != 0){
-                            mostraContainer = true; 
-                          }else{
-                            mostraContainer = false; 
+                          int valor = newValue.id;
+                          if (valor != 0) {
+                            mostraContainer = true;
+                          } else {
+                            mostraContainer = false;
                           }
                         });
                       },
@@ -152,14 +153,12 @@ class _OnibusState extends State<Onibus> {
                         leading: Icon(Icons.settings),
                         title: Text('Configurações',
                             style: TextStyle(fontWeight: FontWeight.bold)),
-                        onTap: () => {
-                              Navigator.pushNamed(context, "/configuracoes")
-                            }))
+                        onTap: () =>
+                            {Navigator.pushNamed(context, "/configuracoes")}))
               ]),
             ),
             body: SingleChildScrollView(
-              child: Column(
-                children: [
+              child: Column(children: [
                 Stack(
                   children: [
                     //mapa
@@ -168,7 +167,8 @@ class _OnibusState extends State<Onibus> {
                       height: 900,
                       child: FlutterMap(
                         options: MapOptions(
-                          center: _selectedRota.path[0],
+                          center: LatLng(
+                              -22.543887, -47.416587), //_selectedRota.path[0],
                           zoom: 18.0,
                         ),
                         mapController: _mapController,
@@ -197,13 +197,19 @@ class _OnibusState extends State<Onibus> {
                         child: Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Container(
-                            width: 300,
-                            height: 300,
+                            width: 200,
+                            height: 200,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8),
                               color: Cores.branco,
                             ),
-                          child: Text("Informações da rota"),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "Informações da rota",
+                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                              ),
+                            ),
                           ),
                         ),
                       ),
@@ -212,56 +218,54 @@ class _OnibusState extends State<Onibus> {
                 ),
               ]),
             ),
-            floatingActionButton: Row( 
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ToggleSwitch(
-                  minWidth: 64,
-                  minHeight: 52,
-                  cornerRadius: 30,
-                  radiusStyle: true,
-                  iconSize: 60,
-                  activeBgColor: [Cores.azulLogo],
-                  activeFgColor: Colors.white,
-                  inactiveBgColor: Colors.grey,
-                  inactiveFgColor: Colors.white,
-                  totalSwitches: 2,
-                  icons: [Icons.bus_alert, Icons.location_on],
-                  onToggle: (index){
-                    if(index==1){
-                      Navigator.pushNamed(context, '/lugar');
-                    }
-                  },
-                ),
-                FloatingActionButton(
+            floatingActionButton: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ToggleSwitch(
+                    minWidth: 64,
+                    minHeight: 52,
+                    cornerRadius: 30,
+                    radiusStyle: true,
+                    iconSize: 60,
+                    activeBgColor: [Cores.azulLogo],
+                    activeFgColor: Colors.white,
+                    inactiveBgColor: Colors.grey,
+                    inactiveFgColor: Colors.white,
+                    totalSwitches: 2,
+                    icons: [Icons.bus_alert, Icons.location_on],
+                    onToggle: (index) {
+                      if (index == 1) {
+                        Navigator.pushNamed(context, '/lugar');
+                      }
+                    },
+                  ),
+                  FloatingActionButton(
                     onPressed: () {
                       showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            backgroundColor: Cores.brancoCerto,
-                            title: Text('Carteira',
-                                style: TextStyle(
-                                  color: Cores.azul,
-                                  fontFamily: 'Comfortaa')),
-                            content: Image.asset(
-                              'assets/carteira.png',
-                              width: 500,
-                            ),
-                            actions: [
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: Icon(
-                                  Icons.close,
-                                  color: Cores.azul,
-                                )
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              backgroundColor: Cores.brancoCerto,
+                              title: Text('Carteira',
+                                  style: TextStyle(
+                                      color: Cores.azul,
+                                      fontFamily: 'Comfortaa')),
+                              content: Image.asset(
+                                'assets/carteira.png',
+                                width: 500,
                               ),
-                            ],
-                          );
-                        }
-                      );
+                              actions: [
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: Icon(
+                                      Icons.close,
+                                      color: Cores.azul,
+                                    )),
+                              ],
+                            );
+                          });
                     },
                     backgroundColor: Cores.azul,
                     child: Icon(
@@ -270,9 +274,6 @@ class _OnibusState extends State<Onibus> {
                       size: 35,
                     ),
                   ),
-              ]
-            )
-      )
-    );
+                ])));
   }
 }

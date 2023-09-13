@@ -27,9 +27,9 @@ class User {
   }
 
   void toggleDeficiencia(Deficiencia deficiencia) {
-    if (hasDeficiencia(deficiencia)) {
+    if (hasDeficiencia(deficiencia) == true) {
       deficiencias.add(deficiencia);
-    } else {
+    }else{
       deficiencias.remove(deficiencia);
     }
   }
