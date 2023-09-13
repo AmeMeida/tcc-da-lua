@@ -1,7 +1,11 @@
+// ignore_for_file: prefer_final_fields
+
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:masked_text/masked_text.dart';
 import 'package:tccmobile/controller/user_control.dart';
 import 'package:tccmobile/main.dart';
+import 'package:tccmobile/model/usuario.dart';
 
 class Perfil extends StatefulWidget {
   const Perfil({super.key});
@@ -10,12 +14,15 @@ class Perfil extends StatefulWidget {
   State<Perfil> createState() => _PerfilState();
 }
 
+  DateFormat formatoData = DateFormat('dd/MM/yyyy');
+  final String dataFormatada = formatoData.format(userControl.loggedUser!.nascimento);
+
 class _PerfilState extends State<Perfil> {
   //VARIAVEIS
-  TextEditingController _campoNome = TextEditingController();
-  TextEditingController _campoNasc = TextEditingController();
-  TextEditingController _campoEmail = TextEditingController();
-  TextEditingController _campoCel = TextEditingController();
+  TextEditingController _campoNome = TextEditingController(text: userControl.loggedUser!.nome);
+  TextEditingController _campoNasc = TextEditingController(text: dataFormatada);
+  TextEditingController _campoEmail = TextEditingController(text: userControl.loggedUser!.email);
+  TextEditingController _campoCel = TextEditingController(text: userControl.loggedUser!.telefone);
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   bool enabled = false;
@@ -59,9 +66,14 @@ class _PerfilState extends State<Perfil> {
 
   @override
   Widget build(BuildContext context) {
+    auditiva = userControl.loggedUser!.hasDeficiencia(Deficiencia.auditiva);
+    visual = userControl.loggedUser!.hasDeficiencia(Deficiencia.visual);
+    motora =  userControl.loggedUser!.hasDeficiencia(Deficiencia.motora);
+    outra =  userControl.loggedUser!.hasDeficiencia(Deficiencia.outra);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(""),
+        title: const Text(""),
         backgroundColor: Cores.azulFundo,
       ),
       backgroundColor: Cores.azulFundo,
@@ -74,7 +86,7 @@ class _PerfilState extends State<Perfil> {
                   CircleAvatar(
                     backgroundColor: Cores.azul,
                     radius: 81,
-                    child: CircleAvatar(
+                    child: const CircleAvatar(
                       backgroundImage: AssetImage("assets/foto-perfil.jpg"),
                       radius: 80,
                     ),
@@ -86,7 +98,7 @@ class _PerfilState extends State<Perfil> {
                         decoration: BoxDecoration(
                             color: Cores.azulLogo, shape: BoxShape.circle),
                         child: IconButton(
-                          icon: Icon(Icons.photo_camera),
+                          icon: const Icon(Icons.photo_camera),
                           color: Cores.branco,
                           iconSize: 20,
                           onPressed: () {},
@@ -106,6 +118,7 @@ class _PerfilState extends State<Perfil> {
                           enabled: enabled,
                           decoration: InputDecoration(
                             labelText: "Nome completo",
+                            
                             prefixIcon: const Icon(Icons.person),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(18),
@@ -150,7 +163,7 @@ class _PerfilState extends State<Perfil> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         SizedBox(
                           width: double.infinity,
                           child: Text(
@@ -174,13 +187,14 @@ class _PerfilState extends State<Perfil> {
                                   Checkbox(
                                     value: auditiva,
                                     onChanged: (value) {
+                                      userControl.loggedUser!.toggleDeficiencia(Deficiencia.auditiva);
+                                      
                                       setState(() {
-                                        auditiva = value!;
-                                        print(auditiva);
+                                        auditiva = value ?? false;
                                       });
                                     },
                                   ),
-                                  Text(
+                                  const Text(
                                     "Auditiva",
                                     style: TextStyle(
                                         fontSize: 12, fontFamily: "Comfortaa"),
@@ -191,13 +205,14 @@ class _PerfilState extends State<Perfil> {
                                   Checkbox(
                                     value: visual,
                                     onChanged: (value) {
+                                      userControl.loggedUser!.toggleDeficiencia(Deficiencia.visual);
+                                      
                                       setState(() {
-                                        visual = value!;
-                                        print(visual);
+                                        visual = value ?? false;
                                       });
                                     },
                                   ),
-                                  Text(
+                                  const Text(
                                     "Visual",
                                     style: TextStyle(
                                         fontSize: 12, fontFamily: "Comfortaa"),
@@ -208,13 +223,14 @@ class _PerfilState extends State<Perfil> {
                                   Checkbox(
                                     value: motora,
                                     onChanged: (value) {
+                                      userControl.loggedUser!.toggleDeficiencia(Deficiencia.motora);
+                                      
                                       setState(() {
-                                        motora = value!;
-                                        print(motora);
+                                        motora = value ?? false;
                                       });
                                     },
                                   ),
-                                  Text(
+                                  const Text(
                                     "Motora",
                                     style: TextStyle(
                                         fontSize: 12, fontFamily: "Comfortaa"),
@@ -225,13 +241,14 @@ class _PerfilState extends State<Perfil> {
                                   Checkbox(
                                     value: outra,
                                     onChanged: (value) {
+                                      userControl.loggedUser!.toggleDeficiencia(Deficiencia.outra);
+                                      
                                       setState(() {
-                                        outra = value!;
-                                        print(outra);
+                                        outra = value ?? false;
                                       });
                                     },
                                   ),
-                                  Text(
+                                  const Text(
                                     "Outra",
                                     style: TextStyle(
                                         fontSize: 12, fontFamily: "Comfortaa"),
