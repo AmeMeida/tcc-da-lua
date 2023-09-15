@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:tccmobile/controller/user_control.dart';
 import 'package:tccmobile/model/usuario.dart';
-import 'package:tccmobile/onibus.dart';
+import 'package:tccmobile/view/paginas_principais/onibus.dart';
 import 'package:tccmobile/main.dart';
 import 'dart:developer';
 

@@ -2,12 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:tccmobile/config/config.dart';
-import 'package:tccmobile/doc/docs.dart';
+import 'package:tccmobile/view/menu/config/config.dart';
+import 'package:tccmobile/view/menu/doc/docs.dart';
 import 'package:tccmobile/model/rota.dart';
 import 'package:tccmobile/main.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:tccmobile/perfil/perfil.dart';
+import 'package:tccmobile/view/menu/perfil/perfil.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 class Onibus extends StatefulWidget {
@@ -207,7 +207,8 @@ class _OnibusState extends State<Onibus> {
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 "Informações da rota",
-                                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 16),
                               ),
                             ),
                           ),

@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tccmobile/controller/user_control.dart';
 import 'package:tccmobile/model/usuario.dart';
-import 'package:tccmobile/login.dart';
+import 'package:tccmobile/view/conta_usuario/login.dart';
 
-import '../main.dart';
+import '../../../main.dart';
 
 class Config extends StatefulWidget {
   const Config({super.key});
