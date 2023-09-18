@@ -14,10 +14,6 @@ class Lugar extends StatefulWidget {
 class _LugarState extends State<Lugar> {
   bool _isSwitched = true;
 
-  void Pesquisa() {
-    print("Pesquisa");
-  }
-
   void Carteira() {
     print("Carteira");
   }
@@ -39,7 +35,7 @@ class _LugarState extends State<Lugar> {
                   color: Cores.branco,
                   iconSize: 50,
                   onPressed: () {
-                    Pesquisa();
+                    Navigator.pushNamed(context, '/pesquisa');
                   },
                 )
               ],

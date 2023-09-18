@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:tccmobile/view/menu/config/config.dart';
 import 'package:tccmobile/view/menu/doc/docs.dart';
 import 'package:tccmobile/view/conta_usuario/login.dart';
-import 'package:tccmobile/view/paginas_principais/lugar.dart';
+import 'package:tccmobile/view/paginas_principais/lugar/lugar.dart';
+import 'package:tccmobile/view/paginas_principais/lugar/pesquisa.dart';
 import 'package:tccmobile/view/paginas_principais/onibus.dart';
 import 'package:tccmobile/view/menu/perfil/perfil.dart';
 import 'package:tccmobile/view/conta_usuario/cadastro.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
           '/configuracoes': (context) => Config(),
           '/documentos': (context) => Docs(),
           '/cadastro': (context) => Cadastro(),
+          '/pesquisa': (context) => Pesquisa(),
         });
   }
 }
