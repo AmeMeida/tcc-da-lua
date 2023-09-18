@@ -1,8 +1,10 @@
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields, prefer_const_constructors, sized_box_for_whitespace, sort_child_properties_last, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
+import 'package:tccmobile/view/conta_usuario/formlua.dart';
 import 'package:tccmobile/view/menu/config/config.dart';
 import 'package:tccmobile/view/menu/doc/docs.dart';
 import 'package:tccmobile/view/conta_usuario/login.dart';
+import 'package:tccmobile/view/paginas_principais/contatos.dart';
 import 'package:tccmobile/view/paginas_principais/lugar/lugar.dart';
 import 'package:tccmobile/view/paginas_principais/lugar/pesquisa.dart';
 import 'package:tccmobile/view/paginas_principais/onibus.dart';
@@ -35,7 +37,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         routes: {
-          '/': (context) => Login(),
+          '/': (context) => FormPagina(),
           '/onibus': (context) => Onibus(),
           '/lugar': (context) => Lugar(),
           '/perfil': (context) => Perfil(),
